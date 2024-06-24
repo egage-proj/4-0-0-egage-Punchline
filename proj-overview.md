@@ -156,8 +156,8 @@ In order to see how well you're doing with this project, here are all the things
 
 ### User Interface: Structure & Accessibility
 
-- [ ] The head has a title
-- [ ] There is a single main element on the page
+- [x] The head has a title
+- [x] There is a single main element on the page
 - [ ] There is a single h1 element on the page
 - [ ] There is a section for the rendering an array of fetched data
   - [ ] The section has an h2
@@ -172,8 +172,8 @@ In order to see how well you're doing with this project, here are all the things
 
 ### Meta
 
-- [ ] The project is created using Vite
-- [ ] The code exists in more than one JS file
+- [x] The project is created using Vite
+- [x] The code exists in more than one JS file
 - [ ] The project is deployed via GitHub Pages properly
 - [ ] CSS flexbox or grid was used
 - [ ] The code does not render unescaped text directly to the DOM (createElement or other escape method used)
