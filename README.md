@@ -4,7 +4,7 @@
 
 [Proposal!](https://docs.google.com/document/d/1j5Mq_pENYT7Cq4ocJSHu0Dh-wB5Sdjmaus0i3SitcsE/edit)
 
-[Repository!](https://github.com/egage-proj/4-0-0-egage-proj)
+[Repository!](https://github.com/egage-proj/4-0-0-egage-proj) | [Scrum Board!](https://github.com/orgs/egage-proj/projects/1)
 
 [Project Requirements!](proj-overview.md#technical-requirements-checklist)
 
