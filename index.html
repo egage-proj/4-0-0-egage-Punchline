@@ -5,12 +5,36 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Punchline!</title>
-    <script type="module" crossorigin src="/4-0-0-egage-Punchline/assets/index-D8pHkuu_.js"></script>
+    <script type="module" crossorigin src="/4-0-0-egage-Punchline/assets/index-BduJyF19.js"></script>
     <link rel="stylesheet" crossorigin href="/4-0-0-egage-Punchline/assets/index-B_SY1GJM.css">
   </head>
   <body>
-    <div id="app">
-      <h1>Test your API!</h1>
-    </div>
+    <main>
+      
+      <h1>Punchline!</h1>
+
+      <form aria-labelledby="formHeader">
+        <h2 id="formHeader">Filter by type form</h2>
+        <label for="jokeType">Joke Type:</label>
+        <select name="jokeType" id="jokeTypeSelect">
+          <option value="">Any</option>
+          <option value="/general">General</option>
+          <option value="/programming">Programming</option>
+          <option value="/knock-knock">Knock-Knock</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+
+      <section id="jokesList">
+        <h2>List of jokes</h2>
+        <ul>
+          <!-- Populate with fetched data -->
+        </ul>
+      </section>
+
+      <section id="guessGame">
+        <!-- render game -->
+      </section>
+    </main>
   </body>
 </html>
