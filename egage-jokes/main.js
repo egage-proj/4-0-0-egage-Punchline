@@ -1,3 +1,6 @@
+import { gameAnswer, revealEvent, submitHandler } from "./js/event-handlers";
+import { fetchJokeID, fetchJokeListByType } from "./js/fetch-helpers";
+import { renderGame, renderJokes } from "./js/render-helpers";
 import "./style.css";
 
 // API Test
@@ -23,15 +26,15 @@ const apiTest = async () => {
   }
 };
 
-const main = () => {
+const main = async () => {
   // apiTest();
-
-  const form = document.querySelector("form");
-  console.log(form);
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log(event);
-  });
+  renderJokes(await fetchJokeListByType());
+  document.querySelector("form").addEventListener("submit", submitHandler);
+  document.querySelector('ul').addEventListener('click', revealEvent);
+  const testJoke = await fetchJokeID('1')
+  const testArr = await fetchJokeListByType();
+  renderGame(testJoke[0], testArr[0]);
+  document.querySelector('#guessGame').addEventListener('click', gameAnswer);
 };
 
 main();

@@ -29,7 +29,7 @@ export const fetchJokeListByType = async (jokeType = "") => {
 };
 
 export const fetchJokeID = async (jokeId) => {
-  const url = `https://official-joke-api.appspot.com/jokes${jokeId}`;
+  const url = `https://official-joke-api.appspot.com/jokes/${jokeId}`;
 
   try {
     const response = await fetch(url);
