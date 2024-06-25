@@ -7,9 +7,28 @@
     <title>Punchline!</title>
   </head>
   <body>
-    <div id="app">
-      <h1>Test your API!</h1>
-    </div>
+    <main>
+      <h1>Punchline!</h1>
+      <section id="typeForm" aria-labelledby="formHeader">
+        <h2 id="formHeader">Filter by type form</h2>
+        <label for="jokeTypeSelect">Joke Type:</label>
+        <select name="jokeType" id="jokeTypeSelect">
+          <option value="">Any</option>
+          <option value="/general">General</option>
+          <option value="/programming">Programming</option>
+          <option value="/knock-knock">Knock-Knock</option>
+        </select>
+      </section>
+      <section id="jokesList">
+        <h2>List of jokes</h2>
+        <ul>
+          <!-- Populate with fetched data -->
+        </ul>
+      </section>
+      <section id="guessGame">
+        <!-- render game -->
+      </section>
+    </main>
     <script type="module" src="main.js"></script>
   </body>
 </html>
