@@ -3,6 +3,7 @@ export const renderJokes = (arrOfJokes) => {
     for (const joke of arrOfJokes[0]) {
         const li = document.createElement('li');
         li.innerHTML = `<p>${joke.setup}</p>`;
+        li.dataset.jokeId = joke.id;
 
         const revealButton = document.createElement('button');
         revealButton.textContent = 'Reveal';
@@ -33,5 +34,4 @@ export const renderGame = (jokeObj, jokeArr) => {
         }
         section.append(button);
     };
-    
 };
