@@ -22,11 +22,16 @@ const apiTest = async () => {
     <p>${joke.setup} | ${joke.punchline}</p>`;
   }
 };
-apiTest();
 
-const form = document.querySelector('form');
-console.log(form);
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  console.log(event);
-});
+const main = () => {
+  // apiTest();
+
+  const form = document.querySelector("form");
+  console.log(form);
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log(event);
+  });
+};
+
+main();
