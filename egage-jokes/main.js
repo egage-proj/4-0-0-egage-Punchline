@@ -14,11 +14,12 @@ const apiTest = async () => {
   const testSingle = await testRoute(url2);
 
   document.body.innerHTML += `
-  <p>${testSingle[0].setup} ${testSingle[0].punchline}</p>
+  <p>${testSingle[0].setup} | ${testSingle[0].punchline}</p>
   <p>-------------------------------------------------</p>`;
+
   for (let joke of testMany) {
     document.body.innerHTML += `
-    <p>${joke.setup} ${joke.punchline}</p>`;
+    <p>${joke.setup} | ${joke.punchline}</p>`;
   }
 };
 apiTest();
