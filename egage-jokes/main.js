@@ -5,7 +5,7 @@ import {
   submitHandler,
 } from "./js/event-handlers";
 import { fetchJokeID, fetchJokeListByType } from "./js/fetch-helpers";
-import { renderGame, renderJokes } from "./js/render-helpers";
+import { renderJokes } from "./js/render-helpers";
 import "./style.css";
 
 // API Test
@@ -38,7 +38,6 @@ const main = async () => {
   document.querySelector("ul").addEventListener("click", revealEvent);
   const testJoke = await fetchJokeID(Math.floor(Math.random() * 406));
   const testArr = await fetchJokeListByType();
-  // renderGame(testJoke[0], testArr[0]);
   document.querySelector("#guessGame").addEventListener("click", gameAnswer);
   document.querySelector("#guessGame").addEventListener("click", closeModal);
 };

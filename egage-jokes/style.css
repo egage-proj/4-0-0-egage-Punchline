@@ -93,7 +93,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   border-color: #000000;
-  padding: 0.6em 1.2em;
+  padding: 0.3rem 1.2rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -109,8 +109,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-#jokeList {
-  min-height: 400px;
+li.flex-box {
+  justify-content: space-between;
+}
+
+#jokesList {
+  height: 400px;
+  overflow-y: auto;
 }
 
 @media (prefers-color-scheme: light) {
