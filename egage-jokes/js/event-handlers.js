@@ -10,7 +10,7 @@ export const submitHandler = async (event) => {
 export const revealEvent = async (event) => {
   if (event.target.matches("button")) {
     const joke = await fetchJokeID(event.target.dataset.jokeId);
-    if (event.target.textContent === "Reveal")
+    if (event.target.textContent === "Punchline!")
       event.target.parentElement.innerHTML = `<p>${joke[0].setup} | ${joke[0].punchline}</p>`;
     else if (event.target.textContent === "Guess") {
       const fakes = await fetchJokeListByType();

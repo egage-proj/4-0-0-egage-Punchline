@@ -109,9 +109,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* #jokeList {
-  height: 600px;
-} */
+#jokeList {
+  min-height: 400px;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
