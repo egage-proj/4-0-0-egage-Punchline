@@ -44,6 +44,17 @@
   gap: 7px;
 }
 
+section, .modal-content {
+  background-color: #2f9e44;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  border-color: #4b4b4b;
+}
+.modal-content {
+  width: fit-content;
+  margin: auto;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -71,16 +82,8 @@
   cursor: pointer;
 }
 
-section, .modal-content {
-  background-color: #2f9e44;
-  border: 4px solid transparent;
-  border-radius: 8px;
-  border-color: #4b4b4b;
-}
-
-.modal-content {
-  width: fit-content;
-  margin: auto;
+main {
+  margin-top: 10%;
 }
 
 h1 {
