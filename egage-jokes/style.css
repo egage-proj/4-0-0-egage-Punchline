@@ -117,7 +117,7 @@ li.flex-box {
 }
 
 #jokesList {
-  height: 400px;
+  max-height: 400px;
   overflow-y: auto;
 }
 
