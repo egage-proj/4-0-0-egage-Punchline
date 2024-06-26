@@ -11,11 +11,11 @@ export const revealEvent = async (event) => {
   if (event.target.matches("button")) {
     const joke = await fetchJokeID(event.target.dataset.jokeId);
     if (event.target.textContent === "Punchline!")
-      event.target.parentElement.innerHTML = `<p>${joke[0].setup} | ${joke[0].punchline}</p>`;
+      event.target.parentElement.parentElement.innerHTML = `<p>${joke[0].setup}</p><p>    </p><p>${joke[0].punchline}</p>`;
     else if (event.target.textContent === "Guess") {
       const fakes = await fetchJokeListByType();
       renderGame(joke[0], fakes[0]);
-      event.target.parentElement.innerHTML = `<p>${joke[0].setup}</p>`;
+      event.target.parentElement.parentElement.innerHTML = `<p>${joke[0].setup}</p>`;
     }
   }
 };
@@ -26,14 +26,14 @@ export const gameAnswer = async (event) => {
     if (event.target.dataset.correct === "true")
       document.querySelector("#guessGame").innerHTML = `
     <div class="flex-box modal-content">
-      <p>Correct!</p>
+      <h2>Correct!</h2>
       <span class="close">&times;</span>
     </div>
     `;
     else
       document.querySelector("#guessGame").innerHTML = `
     <div class="flex-box modal-content">
-      <p>Wrong!</p>
+      <h2>Wrong!</h2>
       <span class="close">&times;</span>
     </div>
     `;

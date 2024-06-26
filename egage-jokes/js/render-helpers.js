@@ -4,6 +4,10 @@ export const renderJokes = (arrOfJokes) => {
     const li = document.createElement("li");
     li.innerHTML = `<p>${joke.setup}</p>`;
     li.dataset.jokeId = joke.id;
+    li.classList.add("flex-box");
+
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("flex-box");
 
     const revealButton = document.createElement("button");
     revealButton.textContent = "Punchline!";
@@ -13,7 +17,8 @@ export const renderJokes = (arrOfJokes) => {
     guessButton.textContent = "Guess";
     guessButton.dataset.jokeId = joke.id;
 
-    li.append(guessButton, revealButton);
+    buttonDiv.append(guessButton, revealButton);
+    li.append(buttonDiv);
     document.querySelector("ul").append(li);
   }
 };
@@ -26,7 +31,7 @@ export const renderGame = (jokeObj, jokeArr) => {
   modalContent.classList.add("modal-content", "column-flex-box");
   modalContent.innerHTML = `
   <div class="flex-box">
-    <p>${jokeObj.setup}</p>
+    <h2>${jokeObj.setup}</h2>
     <span class="close">&times;</span>
   </div>
   `;

@@ -44,6 +44,17 @@
   gap: 7px;
 }
 
+section, .modal-content {
+  background-color: #2f9e44;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  border-color: #4b4b4b;
+}
+.modal-content {
+  width: fit-content;
+  margin: auto;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -71,16 +82,8 @@
   cursor: pointer;
 }
 
-section, .modal-content {
-  background-color: #2f9e44;
-  border: 4px solid transparent;
-  border-radius: 8px;
-  border-color: #4b4b4b;
-}
-
-.modal-content {
-  width: fit-content;
-  margin: auto;
+main {
+  margin-top: 10%;
 }
 
 h1 {
@@ -93,7 +96,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   border-color: #000000;
-  padding: 0.6em 1.2em;
+  padding: 0.3rem 1.2rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -109,8 +112,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-#jokeList {
-  min-height: 400px;
+li.flex-box {
+  justify-content: space-between;
+}
+
+#jokesList {
+  height: 400px;
+  overflow-y: auto;
 }
 
 @media (prefers-color-scheme: light) {
