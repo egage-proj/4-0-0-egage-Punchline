@@ -5,6 +5,7 @@ export const submitHandler = async (event) => {
   event.preventDefault();
   const type = document.querySelector("#jokeTypeSelect").value;
   renderJokes(await fetchJokeListByType(type));
+  event.target.reset();
 };
 
 export const revealEvent = async (event) => {
@@ -26,14 +27,14 @@ export const gameAnswer = async (event) => {
     if (event.target.dataset.correct === "true")
       document.querySelector("#guessGame").innerHTML = `
     <div class="flex-box modal-content">
-      <h2>Correct!</h2>
+      <h2>Ha Ha! Yeah!!</h2>
       <span class="close">&times;</span>
     </div>
     `;
     else
       document.querySelector("#guessGame").innerHTML = `
     <div class="flex-box modal-content">
-      <h2>Wrong!</h2>
+      <h2>Nah. thats not it...</h2>
       <span class="close">&times;</span>
     </div>
     `;

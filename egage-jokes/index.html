@@ -9,14 +9,15 @@
   <body>
     <main class="flex-box">
       <div class="column-flex-box">
-        <h1>Punchline!</h1>
+        <h1>Punchline!!!</h1>
   
         <form aria-labelledby="formHeader" class="column-flex-box">
-          <h2 id="formHeader">Filter by type form</h2>
+          <h2 id="formHeader">Let's have some <span class="italic">pun...</span></h2>
 
           <div class="flex-box">
             <label for="jokeTypeSelect">Joke Type:</label>
-            <select name="jokeType" id="jokeTypeSelect">
+            <select name="jokeType" id="jokeTypeSelect" required>
+              <option disabled selected value="">--- Choose a joke type ---</option>
               <option value="">Any</option>
               <option value="/general">General</option>
               <option value="/programming">Programming</option>
@@ -28,7 +29,7 @@
       </div>
 
       <section id="jokesList" class="column-flex-box" aria-labelledby="joke-list-title">
-        <h2 id="joke-list-title">List of jokes</h2>
+        <h2 id="joke-list-title"><span class="italic">*ahem*</span><h2> So...</h2>
         <ul>
           <!-- Populate with fetched data -->
         </ul>
