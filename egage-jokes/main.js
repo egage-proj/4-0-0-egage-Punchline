@@ -1,4 +1,9 @@
-import { gameAnswer, revealEvent, submitHandler } from "./js/event-handlers";
+import {
+  closeModal,
+  gameAnswer,
+  revealEvent,
+  submitHandler,
+} from "./js/event-handlers";
 import { fetchJokeID, fetchJokeListByType } from "./js/fetch-helpers";
 import { renderGame, renderJokes } from "./js/render-helpers";
 import "./style.css";
@@ -30,11 +35,12 @@ const main = async () => {
   // apiTest();
   renderJokes(await fetchJokeListByType());
   document.querySelector("form").addEventListener("submit", submitHandler);
-  document.querySelector('ul').addEventListener('click', revealEvent);
-  const testJoke = await fetchJokeID(Math.floor(Math.random() * 406))
+  document.querySelector("ul").addEventListener("click", revealEvent);
+  const testJoke = await fetchJokeID(Math.floor(Math.random() * 406));
   const testArr = await fetchJokeListByType();
-  renderGame(testJoke[0], testArr[0]);
-  document.querySelector('#guessGame').addEventListener('click', gameAnswer);
+  // renderGame(testJoke[0], testArr[0]);
+  document.querySelector("#guessGame").addEventListener("click", gameAnswer);
+  document.querySelector("#guessGame").addEventListener("click", closeModal);
 };
 
 main();
