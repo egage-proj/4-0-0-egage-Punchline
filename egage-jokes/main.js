@@ -31,7 +31,7 @@ const main = async () => {
   renderJokes(await fetchJokeListByType());
   document.querySelector("form").addEventListener("submit", submitHandler);
   document.querySelector('ul').addEventListener('click', revealEvent);
-  const testJoke = await fetchJokeID('1')
+  const testJoke = await fetchJokeID(Math.floor(Math.random() * 406))
   const testArr = await fetchJokeListByType();
   renderGame(testJoke[0], testArr[0]);
   document.querySelector('#guessGame').addEventListener('click', gameAnswer);
