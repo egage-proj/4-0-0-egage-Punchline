@@ -21,17 +21,30 @@ export const renderJokes = (arrOfJokes) => {
 export const renderGame = (jokeObj, jokeArr) => {
     const section = document.querySelector('#guessGame');
     section.innerHTML = `<p>${jokeObj.setup}</p>`;
+
+    const jokes = new Map();
+    jokes.set(jokeObj.id, jokeObj);
+    
     const right = Math.floor(Math.random() * 4);
-    for (let i = 0; i < 4; i++) {
-        const button = document.createElement('button');
-        button.classList.add('answers');
-        button.textContent = jokeArr[Math.floor(Math.random() * jokeArr.length)].punchline;
-        if (i === right) {
+    let createdButtons = 0;
+    while (createdButtons < 4) {
+        const random = Math.floor(Math.random() * jokeArr.length);
+        if (right === createdButtons) {
+            const button = document.createElement('button');
             button.dataset.correct = true;
             button.textContent = jokeObj.punchline;
-        } else {
+            section.append(button);
+            createdButtons++;
+        } else if (!jokes.has(jokeArr[random].id)) {
+            jokes.set(jokeArr[random].id, jokeArr[random]);
+            const button = document.createElement('button');
             button.dataset.correct = false;
+            button.textContent = jokeArr[random].punchline;
+            section.append(button);
+            createdButtons++;
+        } else {
+            console.log('repeated');
+            continue;
         }
-        section.append(button);
-    };
+    }
 };
