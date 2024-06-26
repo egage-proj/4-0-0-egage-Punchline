@@ -7,30 +7,34 @@
     <title>Punchline!</title>
   </head>
   <body>
-    <main>
-      
-      <h1>Punchline!</h1>
+    <main class="flex-box">
+      <div class="column-flex-box">
+        <h1>Punchline!</h1>
+  
+        <form aria-labelledby="formHeader" class="column-flex-box">
+          <h2 id="formHeader">Filter by type form</h2>
 
-      <form aria-labelledby="formHeader">
-        <h2 id="formHeader">Filter by type form</h2>
-        <label for="jokeTypeSelect">Joke Type:</label>
-        <select name="jokeType" id="jokeTypeSelect">
-          <option value="">Any</option>
-          <option value="/general">General</option>
-          <option value="/programming">Programming</option>
-          <option value="/knock-knock">Knock-Knock</option>
-        </select>
-        <button type="submit">Submit</button>
-      </form>
+          <div class="flex-box">
+            <label for="jokeTypeSelect">Joke Type:</label>
+            <select name="jokeType" id="jokeTypeSelect">
+              <option value="">Any</option>
+              <option value="/general">General</option>
+              <option value="/programming">Programming</option>
+              <option value="/knock-knock">Knock-Knock</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
 
-      <section id="jokesList">
+      <section id="jokesList" class="column-flex-box">
         <h2>List of jokes</h2>
         <ul>
           <!-- Populate with fetched data -->
         </ul>
       </section>
 
-      <section id="guessGame">
+      <section id="guessGame" class="modal column-flex-box">
         <!-- render game -->
       </section>
     </main>

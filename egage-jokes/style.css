@@ -38,17 +38,49 @@
   padding: .5rem;
 }
 
-.grid-2-x-3 {
+.grid-2-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 7px;
 }
 
-section {
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+section, .modal-content {
   background-color: #2f9e44;
   border: 4px solid transparent;
   border-radius: 8px;
   border-color: #4b4b4b;
+}
+
+.modal-content {
+  width: fit-content;
+  margin: auto;
 }
 
 h1 {
@@ -76,6 +108,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* #jokeList {
+  height: 600px;
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
