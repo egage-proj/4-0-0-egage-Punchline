@@ -12,7 +12,7 @@
 
 <!-- [Demo Vid!]() -->
 
-<!-- [Presentation!]() -->
+[Presentation!](https://docs.google.com/presentation/d/1QzyM5MW5iD54iVRlqtfYMGCf3fyRMU0a3igQo-g_fjU/edit#slide=id.g2b32ee03b40_0_140)
 
 ## Roles
 
