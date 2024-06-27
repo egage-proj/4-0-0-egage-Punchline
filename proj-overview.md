@@ -186,9 +186,9 @@ In order to see how well you're doing with this project, here are all the things
   - [x] The form has at least one input
   - [x] Every input element has an associated label element (it can be invisible but it must be in the HTML)
   - [x] The form has a button to submit the form
-- [ ] At least one field is a required field, and the form cannot be submitted without it
+- [x] At least one field is a required field, and the form cannot be submitted without it
 - [x] Clicking the form submit button does not reload the page because the default behavior is prevented
-- [ ] Clicking the form submit button clears the form
+- [x] Clicking the form submit button clears the form
 
 ## Tips for Success
 

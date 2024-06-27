@@ -82,6 +82,10 @@ section, .modal-content {
   cursor: pointer;
 }
 
+.italic {
+  font-style: italic;
+}
+
 main {
   margin-top: 10%;
 }
