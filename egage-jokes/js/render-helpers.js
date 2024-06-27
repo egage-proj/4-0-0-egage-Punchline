@@ -18,14 +18,13 @@ export const renderButtons = (joke) => {
 }
 
 export const renderJoke = (element, joke) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<p>${joke.setup}</p>`;
-    li.dataset.jokeId = joke.id;
-    li.dataset.answered = 'false';
-    li.classList.add("flex-box");
+    element.innerHTML = `<p>${joke.setup}</p>`;
+    element.dataset.jokeId = joke.id;
+    element.dataset.answered = 'false';
+    element.classList.add("flex-box");
 
-    li.append(renderButtons(joke));
-    return li;
+    element.append(renderButtons(joke));
+    return element;
 }
 
 export const renderJokes = (arrOfJokes) => {
