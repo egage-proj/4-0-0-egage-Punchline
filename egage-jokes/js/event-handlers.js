@@ -1,5 +1,6 @@
 import { fetchJokeID, fetchJokeListByType } from "./fetch-helpers";
-import { renderAnswered, renderButtons, renderGame, renderJoke, renderJokes } from "./render-helpers";
+import { addScore, resetScore } from "./local-storage-helpers";
+import { renderAnswered, renderGame, renderJokes } from "./render-helpers";
 
 export const submitHandler = async (event) => {
   event.preventDefault();
@@ -8,7 +9,7 @@ export const submitHandler = async (event) => {
   event.target.reset();
 };
 
-export let lastJoke = 'placeholder'
+export let lastJoke = 'placeholder';
 
 export const revealEvent = async (event) => {
   if (event.target.matches("button")) {
@@ -40,13 +41,16 @@ export const gameAnswer = async (event) => {
         element.dataset.answered = 'true';
       }
     }
-    } else
+    addScore(1);
+    } else {
       document.querySelector("#guessGame").innerHTML = `
     <div class="flex-box modal-content">
       <h2>Nah. thats not it...</h2>
       <span class="close">&times;</span>
     </div>
     `;
+    resetScore();
+    }
   }
 };
 
