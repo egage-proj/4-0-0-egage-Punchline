@@ -36,8 +36,6 @@ const main = async () => {
   renderJokes(await fetchJokeListByType());
   document.querySelector("form").addEventListener("submit", submitHandler);
   document.querySelector("ul").addEventListener("click", revealEvent);
-  const testJoke = await fetchJokeID(Math.floor(Math.random() * 406));
-  const testArr = await fetchJokeListByType();
   document.querySelector("#guessGame").addEventListener("click", gameAnswer);
   document.querySelector("#guessGame").addEventListener("click", closeModal);
 };

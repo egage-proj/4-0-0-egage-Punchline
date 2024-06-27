@@ -1,11 +1,7 @@
-export const renderJokes = (arrOfJokes) => {
-  document.querySelector("ul").innerHTML = "";
-  for (const joke of arrOfJokes[0]) {
-    const li = document.createElement("li");
-    li.innerHTML = `<p>${joke.setup}</p>`;
-    li.dataset.jokeId = joke.id;
-    li.classList.add("flex-box");
+import { lastJoke } from "./event-handlers";
+import { fetchJokeID } from "./fetch-helpers";
 
+export const renderButtons = (joke) => {
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("flex-box");
 
@@ -17,8 +13,25 @@ export const renderJokes = (arrOfJokes) => {
     guessButton.textContent = "Guess";
     guessButton.dataset.jokeId = joke.id;
 
-    buttonDiv.append(guessButton, revealButton);
-    li.append(buttonDiv);
+    buttonDiv.append(guessButton, revealButton)
+    return buttonDiv;
+}
+
+export const renderJoke = (element, joke) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<p>${joke.setup}</p>`;
+    li.dataset.jokeId = joke.id;
+    li.dataset.answered = 'false';
+    li.classList.add("flex-box");
+
+    li.append(renderButtons(joke));
+    return li;
+}
+
+export const renderJokes = (arrOfJokes) => {
+  document.querySelector("ul").innerHTML = "";
+  for (const joke of arrOfJokes[0]) {
+    const li = renderJoke(document.createElement('li'), joke);
     document.querySelector("ul").append(li);
   }
 };
@@ -62,10 +75,23 @@ export const renderGame = (jokeObj, jokeArr) => {
       punchlineGrid.append(button);
       createdButtons++;
     } else {
-      console.log("repeated");
       continue;
     }
   }
   modalContent.append(punchlineGrid);
   section.append(modalContent);
 };
+
+export const renderAnswered = async () => {
+    const currentJokes = document.querySelectorAll('li');
+    for (const joke of currentJokes) {
+      if (joke.children[0].textContent === lastJoke) {
+          const jokeObj = await fetchJokeID(joke.dataset.jokeId);
+          if (joke.dataset.answered === 'false') {
+              joke.append(renderButtons(jokeObj[0]));
+          } else {
+              joke.innerHTML = `<p>${jokeObj[0].setup}</p><p>    </p><p>${jokeObj[0].punchline}</p>`;
+          }
+      }
+    }
+}

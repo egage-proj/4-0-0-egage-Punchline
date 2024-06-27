@@ -1,5 +1,5 @@
 import { fetchJokeID, fetchJokeListByType } from "./fetch-helpers";
-import { renderGame, renderJokes } from "./render-helpers";
+import { renderAnswered, renderButtons, renderGame, renderJoke, renderJokes } from "./render-helpers";
 
 export const submitHandler = async (event) => {
   event.preventDefault();
@@ -7,6 +7,8 @@ export const submitHandler = async (event) => {
   renderJokes(await fetchJokeListByType(type));
   event.target.reset();
 };
+
+export let lastJoke = 'placeholder'
 
 export const revealEvent = async (event) => {
   if (event.target.matches("button")) {
@@ -16,6 +18,7 @@ export const revealEvent = async (event) => {
     else if (event.target.textContent === "Guess") {
       const fakes = await fetchJokeListByType();
       renderGame(joke[0], fakes[0]);
+      lastJoke = joke[0].setup;
       event.target.parentElement.parentElement.innerHTML = `<p>${joke[0].setup}</p>`;
     }
   }
@@ -23,35 +26,35 @@ export const revealEvent = async (event) => {
 
 export const gameAnswer = async (event) => {
   if (event.target.matches("button")) {
-    const curJoke = event.target.parentElement.children[0].textContent;
-    if (event.target.dataset.correct === "true")
+    const curJoke = event.target.parentElement.parentElement.children[0].children[0].textContent;
+    if (event.target.dataset.correct === "true") {
       document.querySelector("#guessGame").innerHTML = `
     <div class="flex-box modal-content">
       <h2>Ha Ha! Yeah!!</h2>
       <span class="close">&times;</span>
     </div>
     `;
-    else
+    const li = document.querySelectorAll("li");
+    for (const element of li) {
+      if (element.children[0].textContent === curJoke) {
+        element.dataset.answered = 'true';
+      }
+    }
+    } else
       document.querySelector("#guessGame").innerHTML = `
     <div class="flex-box modal-content">
       <h2>Nah. thats not it...</h2>
       <span class="close">&times;</span>
     </div>
     `;
-    const li = document.querySelectorAll("li");
-    for (const element of li) {
-      if (element.children[0].textContent === curJoke) {
-        const joke = await fetchJokeID(element.dataset.jokeId);
-        element.innerHTML = `<p>${joke[0].setup} | ${joke[0].punchline}</p>`;
-      }
-    }
   }
 };
 
-export const closeModal = (event) => {
-  if (!event.target.matches(".close") && event.target.matches("div, div > *")) {
-    return;
-  }
+export const closeModal = async (event) => {
+    if (!event.target.matches(".close") && event.target.matches("div, div > *")) {
+        return;
+    }
 
   event.currentTarget.style.display = "none";
+  renderAnswered();
 };
