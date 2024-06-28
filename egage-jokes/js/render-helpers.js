@@ -30,10 +30,8 @@ export const renderJoke = (element, joke) => {
 
 export const renderJokes = (arrOfJokes) => {
   const highScoreCounter = document.querySelector("#score-tracker");
-  highScoreCounter.textContent = `High Score: ${getHighScore()}`;
-  highScoreCounter.dataset.highScore = getHighScore();
-  console.log("curr score: ", getScore());
-  console.log("hi score: ", getHighScore());
+  highScoreCounter.textContent = `Current Score: ${getScore()} | High Score: ${getHighScore()}`;
+  //   highScoreCounter.dataset.highScore = getHighScore();
   document.querySelector("ul").innerHTML = "";
   for (const joke of arrOfJokes[0]) {
     const li = renderJoke(document.createElement("li"), joke);

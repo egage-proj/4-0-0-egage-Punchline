@@ -1,6 +1,6 @@
 export const getScore = () => {
   try {
-    console.log("score", JSON.parse(localStorage.getItem("score")));
+    // console.log("score", JSON.parse(localStorage.getItem("score")));
     return JSON.parse(localStorage.getItem("score"));
   } catch (err) {
     console.warn(err);
@@ -9,7 +9,7 @@ export const getScore = () => {
 };
 export const getHighScore = () => {
   try {
-    console.log("hiscore", JSON.parse(localStorage.getItem("hiscore")));
+    // console.log("hiscore", JSON.parse(localStorage.getItem("hiscore")));
     return JSON.parse(localStorage.getItem("hiscore"));
   } catch (err) {
     console.warn(err);
@@ -20,7 +20,7 @@ export const getHighScore = () => {
 export const addScore = (plusScore) => {
   const score = getScore();
   //   console.log(score);
-  localStorage.clear();
+  //   localStorage.clear();
   localStorage.setItem("score", JSON.stringify(score + plusScore));
   setHighScore(score + plusScore);
 };

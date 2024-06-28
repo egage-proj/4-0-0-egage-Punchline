@@ -63,8 +63,10 @@ export const gameAnswer = async (event) => {
     `;
       resetScore();
     }
-    console.log("curr score: ", getScore());
-    console.log("hi score: ", getHighScore());
+    const highScoreCounter = document.querySelector("#score-tracker");
+    highScoreCounter.textContent = `Current Score: ${getScore()} | High Score: ${getHighScore()}`;
+    // console.log("curr score: ", getScore());
+    // console.log("hi score: ", getHighScore());
   }
 };
 
