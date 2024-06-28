@@ -5,12 +5,18 @@ import {
   submitHandler,
 } from "./js/event-handlers";
 import { fetchJokeListByType } from "./js/fetch-helpers";
-import { getScore, initScore } from "./js/local-storage-helpers";
+import {
+  getHighScore,
+  getScore,
+  initHighScore,
+  initScore,
+} from "./js/local-storage-helpers";
 import { renderJokes } from "./js/render-helpers";
 import "./style.css";
 
 const main = async () => {
-  if (!getScore())  initScore();
+  if (!getScore()) initScore();
+  if (!getHighScore()) initHighScore();
   renderJokes(await fetchJokeListByType());
   document.querySelector("form").addEventListener("submit", submitHandler);
   document.querySelector("ul").addEventListener("click", revealEvent);

@@ -1,36 +1,42 @@
 import { lastJoke } from "./event-handlers";
 import { fetchJokeID } from "./fetch-helpers";
+import { getHighScore, getScore } from "./local-storage-helpers";
 
 export const renderButtons = (joke) => {
-    const buttonDiv = document.createElement("div");
-    buttonDiv.classList.add("flex-box");
+  const buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("flex-box");
 
-    const revealButton = document.createElement("button");
-    revealButton.textContent = "Punchline!";
-    revealButton.dataset.jokeId = joke.id;
+  const revealButton = document.createElement("button");
+  revealButton.textContent = "Punchline!";
+  revealButton.dataset.jokeId = joke.id;
 
-    const guessButton = document.createElement("button");
-    guessButton.textContent = "Guess";
-    guessButton.dataset.jokeId = joke.id;
+  const guessButton = document.createElement("button");
+  guessButton.textContent = "Guess";
+  guessButton.dataset.jokeId = joke.id;
 
-    buttonDiv.append(guessButton, revealButton)
-    return buttonDiv;
-}
+  buttonDiv.append(guessButton, revealButton);
+  return buttonDiv;
+};
 
 export const renderJoke = (element, joke) => {
-    element.innerHTML = `<p>${joke.setup}</p>`;
-    element.dataset.jokeId = joke.id;
-    element.dataset.answered = 'false';
-    element.classList.add("flex-box");
+  element.innerHTML = `<p>${joke.setup}</p>`;
+  element.dataset.jokeId = joke.id;
+  element.dataset.answered = "false";
+  element.classList.add("flex-box");
 
-    element.append(renderButtons(joke));
-    return element;
-}
+  element.append(renderButtons(joke));
+  return element;
+};
 
 export const renderJokes = (arrOfJokes) => {
+  const highScoreCounter = document.querySelector("#score-tracker");
+  highScoreCounter.textContent = `High Score: ${getHighScore()}`;
+  highScoreCounter.dataset.highScore = getHighScore();
+  console.log("curr score: ", getScore());
+  console.log("hi score: ", getHighScore());
   document.querySelector("ul").innerHTML = "";
   for (const joke of arrOfJokes[0]) {
-    const li = renderJoke(document.createElement('li'), joke);
+    const li = renderJoke(document.createElement("li"), joke);
     document.querySelector("ul").append(li);
   }
 };
@@ -82,15 +88,15 @@ export const renderGame = (jokeObj, jokeArr) => {
 };
 
 export const renderAnswered = async () => {
-    const currentJokes = document.querySelectorAll('li');
-    for (const joke of currentJokes) {
-      if (joke.children[0].textContent === lastJoke) {
-          const jokeObj = await fetchJokeID(joke.dataset.jokeId);
-          if (joke.dataset.answered === 'false') {
-              joke.append(renderButtons(jokeObj[0]));
-          } else {
-              joke.innerHTML = `<p>${jokeObj[0].setup}</p><p>    </p><p>${jokeObj[0].punchline}</p>`;
-          }
+  const currentJokes = document.querySelectorAll("li");
+  for (const joke of currentJokes) {
+    if (joke.children[0].textContent === lastJoke) {
+      const jokeObj = await fetchJokeID(joke.dataset.jokeId);
+      if (joke.dataset.answered === "false") {
+        joke.append(renderButtons(jokeObj[0]));
+      } else {
+        joke.innerHTML = `<p>${jokeObj[0].setup}</p><p>    </p><p>${jokeObj[0].punchline}</p>`;
       }
     }
-}
+  }
+};
